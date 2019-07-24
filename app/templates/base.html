@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <!--This begins an if/else statement-->
+        {% if title %}
+        <!--Jinja2 will take a supplied title and place it here.-->
+        <title>{{ title }} - alexmacniven.dev</title>
+        {% else %}
+        <title>alexmacniven.dev</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>alexmacniven.dev: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
