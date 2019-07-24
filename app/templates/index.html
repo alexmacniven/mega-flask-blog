@@ -1,10 +1,19 @@
 <html>
     <head>
+        <!--This begins an if/else statement-->
+        {% if title %}
         <!--Jinja2 will take a supplied title and place it here.-->
         <title>{{ title }} - Microblog</title>
+        {% else %}
+        <title>Welcome to Microblog</title>
+        {% endif %}
     </head>
     <body>
         <!--Supplier user.get("username") applied here-->
         <h1>Hello, {{ user.username }}!</h1>
+        <!--Here is a for statement-->
+        {% for post in posts %}
+        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+        {% endfor %}
     </body>
 </html>

@@ -7,4 +7,14 @@ from app import app
 def index():
     # Jinja2 will apply 'user' to the placeholder in index.html
     user = dict(username = "Alex")
-    return render_template("index.html", title="Home", user=user)
+    posts = [
+        dict(
+            author = dict(username="John"),
+            body = "Check out this photo!"
+        ),
+        dict(
+            author = dict(username="Tina"),
+            body = "I love this dress"
+        )
+    ]
+    return render_template("index.html", title="Home", user=user, posts=posts)
