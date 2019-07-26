@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <!--Create a placeholder for LoginForm-->
+    <form action="" method="post" novalidate>
+        <!--Remember CSRF? Including hidden_tag() will prevent this when
+            used in conjunction with flask SECRET_KEY. Basically it
+            generates some kind of token-->
+        {{ form.hidden_tag() }}
+        <!--So now to the fields, as you can see we grab the fields
+        label property and then invoke the field with some optional
+        arguments-->
+        <p>
+            {{ form.username.label}}<br>
+            {{ form.username(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32)}}
+        </p>
+        <p>
+            {{ form.remember_me() }}
+            {{ form.remember_me.label }}
+        </p>
+        <!--This is the form submit button-->
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+        
+{% endblock %}
